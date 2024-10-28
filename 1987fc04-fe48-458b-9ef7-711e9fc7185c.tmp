@@ -1,0 +1,62 @@
+// Book.java
+public class Book {
+    // Attributes
+    private String title;
+    private String author;
+    private String ISBN;
+    private double price;
+
+    // Default Constructor
+    public Book() {
+        this.title = "";
+        this.author = "";
+        this.ISBN = "";
+        this.price = 0.0;
+    }
+
+    // Parameterized Constructor
+    public Book(String title, String author, String ISBN, double price) {
+        this.title = title;
+        this.author = author;
+        this.ISBN = ISBN;
+        this.price = price;
+    }
+
+    // Method to display book information
+    public void displayInfo() {
+        System.out.println("Title: " + title);
+        System.out.println("Author: " + author);
+        System.out.println("ISBN: " + ISBN);
+        System.out.println("Price: $" + price);
+    }
+
+    // Additional method to apply a discount
+    public void applyDiscount(double discountPercentage) {
+        price -= price * (discountPercentage / 100);
+        System.out.println("New price after " + discountPercentage + "% discount: $" + price);
+    }
+
+    // Main method for testing
+    public static void main(String[] args) {
+        // Creating book objects using both constructors
+        Book book1 = new Book("Effective Java", "Joshua Bloch", "978-0134686097", 45.00);
+        Book book2 = new Book(); // Using default constructor
+        Book book3 = new Book("Clean Code", "Robert C. Martin", "978-0136083238", 40.00);
+
+        // Displaying book information
+        System.out.println("Book 1 Info:");
+        book1.displayInfo();
+        System.out.println();
+
+        System.out.println("Book 2 Info (Default Values):");
+        book2.displayInfo();
+        System.out.println();
+
+        System.out.println("Book 3 Info:");
+        book3.displayInfo();
+        System.out.println();
+
+        // Testing the additional method
+        book1.applyDiscount(10); // Applying 10% discount
+    }
+}
